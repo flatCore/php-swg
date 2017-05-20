@@ -1,5 +1,7 @@
-# php{swg} - PHP Static Website Generator
 <img src="app/images/logo.png" alt="logo" width="250" height="66" />
+
+# PHP Static Website Generator
+
 
 ## Install
 
@@ -13,18 +15,18 @@ __Note:__ It's not recommended, to run php{swg} on a public server. If you want 
 
 __Here are some Tips and Tricks for successfully using php{swg}.__
 
-<img src="app/images/screen_app.png" alt="screen_app" width="1222" height="438" />
+<img src="app/images/screen_app.png" alt="screen_app" />
 
-* __Source:__ Select the folder that contains the markdown files and folder structure you want to convert in a static website.
+* __Source:__ Select the folder that contains the markdown files and folder structure you want to convert in a static website.
 * __Destination:__ After processing, all files are stored in this folder.
-* __Prefix/Root:__ This string is used for the navigation in your static website. Each Link in the navigation will be prefixed with this string.
-* __Template:__ Select the Template which is used for styling the static website.
+* __Prefix/Root:__ This string is used for the navigation in your static website. Each Link in the navigation will be prefixed with this string.
+* __Template:__ Select the Template which is used for styling the static website.
 
 ### Create new source- and destination-folders
 
 __Source-folder:__ Create a new folder and name it soemthing like <code>src_*</code>. All folders whose name starts with <code>src_</code> will appear in the selection list for Sources.
 
-__Destination-folder:__ Create a new folder and name it something like <code>static_*</code>. All folders whose name starts with <code>static_</code> will appear in the selection list for Destinations (remember: destination folders must have recusrive read and write permissions).
+__Destination-folder:__ Create a new folder and name it something like <code>static_*</code>. All folders whose name starts with <code>static_</code> will appear in the selection list for Destinations (remember: destination folders must have recusrive read and write permissions).
 
 ### Add new Contents to your static Website
 
