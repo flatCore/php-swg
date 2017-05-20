@@ -1,0 +1,162 @@
+<h2>php{swg} - Help</h2>
+
+<p class="lead">Here are some Tips and Tricks for successfully using php{swg}.</p>
+
+<div class="row">
+	<div class="col-md-8">
+		
+		
+		<h2 id="generator">Run the generator</h2>
+		
+		<fieldset>
+			<legend>Preferences</legend>
+			<h3>Source</h3>
+			<p>Select the folder that contains the markdown files and folder structure you want to convert in a static website.</p>
+			
+			<h3>Destination</h3>
+			<p>After processing, all files are stored in this folder.</p>
+			
+			<h3>Prefix/Root</h3>
+			<p>This string is used for the navigation in your static website. Each Link in your navigation will be prefixed with this string.</p>
+			<div class="well well-sm">
+				<p><strong>Examples:</strong></p>
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Your input</th>
+							<th>Prefixed result</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>/static_en</td>
+							<td><code>&lt;a href=&quot;<strong>/static_en</strong>/my/cool/website.html&quot;&gt;Cool Website&lt;/a&gt;</code></td>
+						</tr>
+						<tr>
+							<td>http://example.org</td>
+							<td><code>&lt;a href=&quot;<strong>http://example.org</strong>/my/cool/website.html&quot;&gt;Cool Website&lt;/a&gt;</code></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			
+			<h3>Template</h3>
+			<p>Select the Template which is used for styling the static website.</p>
+		</fieldset>
+		
+		<hr class="shadow">
+		
+		<fieldset>
+			<legend>Sources</legend>
+			
+				<h2 id="sources">Create new source- and destination-folders</h2>
+				<p><strong>Source-folder:</strong> Create a new folder and name it soemthing like <code>src_*</code>. All folders whose name starts with <strong>src_</strong> will appear in the selection list for Sources.</p>
+				<p><strong>Destination-folder:</strong> Create a new folder and name it something like <code>static_*</code>. All folders whose name starts with <strong>static_</strong> will appear in the selection list for Destinations.</p>
+				<p></p>
+				<p class="alert alert-info"><strong>Note:</strong> Destination folders must have <em>recusrive</em> read and write access (chmod 0777).</p>
+				
+				<h3>Add new Contents to your Website</h3>
+				<p>The easiest way is to apply a markdown (index.md) document within the source folder. This file will be converted to the homepage of your site. You can add as many files as you like. The Generator will build the Navigation and Pages automatically.</p>
+				
+				<h4>sort and structure</h4>
+				<p>If you won't get a alphabetic structure, simple prefix your source files with numbers and seperate the file names with two hyphens. Example: <kbd>100--credits.md</kbd>. The sorting part in the filename (100--) won't show up in the generated static site - the file will be converted to <kbd>credits.html</kbd>. Of course you can also create subfolders. The rules for sorting subfolders are the same.</p>
+				<p class="alert alert-info"><strong>Note:</strong> If you create a subfolder in your source files, it must contain an index.md file.</p>
+				
+				<h4>the markdown files</h4>
+				<p>The source files are splitted in two sections. The header-informations (at the top, bordered by three dashes) and the mardown code which will be generated into HTML.</p>
+				<p>Example:</p>
+				<pre>---
+navigation: Home
+title: My Title
+description: My new static site
+keywords: markdown, html, convert
+---
+		
+### Headline H3</pre>
+		
+				<h4>Add images and files to your Project</h4>
+				<p>Create a directory "_assets" within your Source folder. This folder (with all it's contents) will be copied in your generated static website's root. Use this directory for your Images or Files (e.g. Downloads etc.)</p>
+				<p>Example usage in your markdown files: <code></code></p>
+		
+		</fieldset>
+		
+		<hr class="shadow">
+		
+		<fieldset>
+			<legend>Templates</legend>
+		
+				<h2 id="templates">Templates and variables</h2>
+				<p>All templates are located in the theme folder. php{swg} comes with two - ready to use - themes (silver and blackboard).</p>
+				<p>If you want to create an new theme, I would recommend to duplicate simply one of the default themes - silver or blackboard - and make the changes in this copy.</p>
+				
+				<h4>Template files</h4>
+				<ul>
+					<li>tpl/index.tpl (required)</li>
+					<li>tpl/footer.tpl</li>
+					<li>tpl/header.tpl</li>
+				</ul>
+				
+				<p class="alert alert-info"><strong>Note:</strong> The complete activated Template folder will be copied in the static website's root.</p>
+				
+				<h4>available variables</h4>
+				<dl class="dl-horizontal">
+				  <dt><code>{$title}</code></dt>
+				  <dd>The title from your markdown document.</dd>
+				  <dt><code>{$description}</code></dt>
+				  <dd>The description from your markdown document.</dd>
+				  <dt><code>{$keywords}</code></dt>
+				  <dd>The keywords from your markdown document.</dd>
+				  <dt><code>{$root}</code></dt>
+				  <dd>The Root/Prefix from your Preferences.</dd>
+				  <dt><code>{$navigation}</code></dt>
+				  <dd>Will be replaced with the Navigation.</dd>
+				  <dt><code>{$content}</code></dt>
+				  <dd>The content from your markdown document.</dd>
+				  <dt><code>{$header}</code></dt>
+				  <dd>Will be replaced with the contents from the file tpl/header.tpl</dd>
+				  <dt><code>{$footer}</code></dt>
+				  <dd>Will be replaced with the contents from the file tpl/footer.tpl</dd>
+				  <dt><code>{$filename_orig}</code></dt>
+				  <dd>Filename of the markdown file</dd>
+				  <dt><code>{$filepath_orig}</code></dt>
+				  <dd>Complete path to the markdown file</dd>
+				  <dt><code>{$filemtime}</code></dt>
+				  <dd>file modification time (Unix timestamp)</dd>
+				  <dt><code>{$filemtime_Y}</code></dt>
+				  <dd>file modification time - Year e.g. 2016</dd>
+				  <dt><code>{$filemtime_m}</code></dt>
+				  <dd>file modification time - Month e.g. 02</dd>
+				  <dt><code>{$filemtime_d}</code></dt>
+				  <dd>file modification time - Day e.g. 07</dd>
+				  <dt><code>{$filemtime_H}</code></dt>
+				  <dd>file modification time - Hour e.g. 11</dd>
+				  <dt><code>{$filemtime_i}</code></dt>
+				  <dd>file modification time - Minutes e.g. 45</dd>
+				  <dt><code>{$filemtime_s}</code></dt>
+				  <dd>file modification time - Seconds e.g. 33</dd>
+				</dl>
+		
+		</fieldset>
+		
+		<hr class="shadow">
+		
+		<h4>Credits</h4>
+		<p>Parsedown - Converting Markdown to HTML<br><a href="http://parsedown.org">http://parsedown.org</a></p>
+		<p>Spyc -- A Simple PHP YAML Class<br><a href="https://github.com/mustangostang/spyc/">https://github.com/mustangostang/spyc/</a></p>
+		<p>Bootstrap - HTML, CSS and JS framework<br><a href="http://getbootstrap.com">Bootstrap</a></p>
+		
+	</div>
+	<div class="col-md-4">
+	
+		<div class="list-group">
+			<a class="list-group-item" href="#generator">Run the generator</a>
+			<a class="list-group-item" href="#sources">Create new source- and destination folders</a>
+			<a class="list-group-item" href="#templates">Templates and variables</a>
+		</div>
+	
+	</div>
+</div>
+	
+
+
+
