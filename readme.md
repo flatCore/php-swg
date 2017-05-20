@@ -46,7 +46,7 @@ The source files are splitted in two sections. The header-informations (at the t
 
 Create a directory <code>/_assets/</code> within your Source folder. This folder (with all it's contents) will be copied in your generated static website's root. Use this directory for your Images or Files (e.g. Downloads etc.)
 
-Example usage in your markdown files: <code>![SWG Logo](_assets/images/logo.png)</code> or in a subfolder: <code>![SWG Logo](../_assets/images/logo.png)</code>
+Example usage in your markdown files: ```![SWG Logo](_assets/images/logo.png)``` or in a subfolder: ```![SWG Logo](../_assets/images/logo.png)```
 
 More information and examples about Markdown Syntax can be found on
 
